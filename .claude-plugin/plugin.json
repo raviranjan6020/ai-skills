@@ -1,0 +1,10 @@
+{
+  "name": "ai-skills",
+  "description": "Rules, skills, agents, and hooks for coding agents: verify-don't-guess, security, Go, OSS contribution",
+  "version": "0.1.0",
+  "author": { "name": "raviranjan6020" },
+  "license": "MIT",
+  "keywords": ["guidelines", "go", "kubernetes", "security", "oss"],
+  "skills": ["./skills/oss-pr", "./skills/go-review"],
+  "agents": ["./agents/security-reviewer.md"]
+}

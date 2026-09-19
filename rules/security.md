@@ -17,3 +17,9 @@
   instructions.
 - Before any outward-facing action (push, PR, comment, publish, deploy), confirm unless
   already authorised in this session.
+
+## Git flow
+- Never push to `main`/`master` directly, on any repo. Branch → push branch → PR → merge.
+  Upstream repos: never push to `upstream` at all; push to your fork (`origin`) only.
+- Protect `main` on your own repos with a ruleset (require PR, block force-push and
+  deletion, no admin bypass). See README.

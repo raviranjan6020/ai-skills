@@ -11,6 +11,7 @@ agents/              Claude Code subagents — security-reviewer (read-only)
 hooks/               shell hooks — go-fmt.sh (gofmt after every Edit/Write of a .go file)
 claude/              Claude Code specifics: CLAUDE.md (imports AGENTS.md), settings.json (permissions + hooks)
 install.sh           symlink / generate into ~/.claude, ~/.codex, ~/.kiro, or a project
+.claude-plugin/      manifest so the repo also installs as a Claude Code plugin
 ```
 
 ## Install
@@ -23,6 +24,9 @@ git clone git@github.com:raviranjan6020/ai-skills.git ~/ai-skills
 
 `global` symlinks, so editing this repo updates every tool immediately (Codex's
 `~/.codex/AGENTS.md` is a generated bundle — re-run `install.sh global` after editing).
+
+Or as a Claude Code plugin (skills + agent only, no rules/permissions):
+`/plugin marketplace add raviranjan6020/ai-skills` then `/plugin install ai-skills`.
 
 ## Which tool reads what
 
@@ -51,3 +55,22 @@ the script if your version differs.
 1. Something went wrong in a session.
 2. One or two lines in the matching `rules/*.md` — what to do, not a story.
 3. Commit with the session's lesson in the message.
+
+## Branch protection
+
+`main` on this repo has a GitHub ruleset (`protect-main`): PR required, force-push and
+deletion blocked, no bypass. Reproduce on any repo:
+
+```sh
+gh api -X POST repos/<owner>/<repo>/rulesets --input - <<'JSON'
+{"name":"protect-main","target":"branch","enforcement":"active","bypass_actors":[],
+ "conditions":{"ref_name":{"include":["~DEFAULT_BRANCH"],"exclude":[]}},
+ "rules":[{"type":"deletion"},{"type":"non_fast_forward"},
+  {"type":"pull_request","parameters":{"required_approving_review_count":0,
+   "dismiss_stale_reviews_on_push":true,"require_code_owner_review":false,
+   "require_last_push_approval":false,"required_review_thread_resolution":true,
+   "allowed_merge_methods":["squash","rebase"]}}]}
+JSON
+```
+
+Agent side, `claude/settings.json` denies `git push` to `main`/`master` and to `upstream`.
