@@ -5,6 +5,6 @@
   "author": { "name": "raviranjan6020" },
   "license": "MIT",
   "keywords": ["guidelines", "go", "kubernetes", "security", "oss"],
-  "skills": ["./skills/oss-pr", "./skills/go-review"],
+  "skills": ["./skills/oss-pr", "./skills/go-review", "./skills/docs-writing"],
   "agents": ["./agents/security-reviewer.md"]
 }
