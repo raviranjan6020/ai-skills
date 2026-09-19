@@ -29,7 +29,12 @@
       "Read(./.env.*)",
       "Read(~/.ssh/**)",
       "Read(~/.aws/**)",
-      "Read(~/.kube/config)"
+      "Read(~/.kube/config)",
+      "Bash(git push origin main*)",
+      "Bash(git push origin master*)",
+      "Bash(git push * HEAD:main*)",
+      "Bash(git push * HEAD:master*)",
+      "Bash(git push upstream *)"
     ]
   },
   "hooks": {
@@ -37,7 +42,10 @@
       {
         "matcher": "Edit|Write",
         "hooks": [
-          { "type": "command", "command": "bash ~/ai-skills/hooks/go-fmt.sh" }
+          {
+            "type": "command",
+            "command": "bash ~/ai-skills/hooks/go-fmt.sh"
+          }
         ]
       }
     ]
