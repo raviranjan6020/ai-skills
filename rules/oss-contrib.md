@@ -11,3 +11,6 @@
 - Respond to review comments by changing the code or explaining, never by silently
   force-pushing over the discussion. Prefer fixup commits until asked to squash.
 - Don't @-mention maintainers or ping for review in the first 3 business days.
+- Commits are authored by the user only: git's configured `user.name`/`user.email`, no
+  `Co-Authored-By` AI trailers, no "Generated with ..." lines in commits or PR bodies.
+  Never pass `-c user.email=...` to override the configured identity.

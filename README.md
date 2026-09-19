@@ -11,6 +11,7 @@ agents/              Claude Code subagents — security-reviewer (read-only)
 hooks/               shell hooks — go-fmt.sh (gofmt after every Edit/Write of a .go file)
 claude/              Claude Code specifics: CLAUDE.md (imports AGENTS.md), settings.json (permissions + hooks)
 install.sh           symlink / generate into ~/.claude, ~/.codex, ~/.kiro, or a project
+.claude-plugin/      manifest so the repo also installs as a Claude Code plugin
 ```
 
 ## Install
@@ -23,6 +24,9 @@ git clone git@github.com:raviranjan6020/ai-skills.git ~/ai-skills
 
 `global` symlinks, so editing this repo updates every tool immediately (Codex's
 `~/.codex/AGENTS.md` is a generated bundle — re-run `install.sh global` after editing).
+
+Or as a Claude Code plugin (skills + agent only, no rules/permissions):
+`/plugin marketplace add raviranjan6020/ai-skills` then `/plugin install ai-skills`.
 
 ## Which tool reads what
 
