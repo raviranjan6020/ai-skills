@@ -1,5 +1,8 @@
 # Open-source contribution
 
+- Shared OSS work context lives in `~/oss` (private repo `raviranjan6020/oss-stack`).
+  Before OSS work, `git -C ~/oss pull --rebase --autostash` and read `STATUS.md`.
+  Follow `~/oss/AGENTS.md` for where notes go, and push right after editing.
 - Read `CONTRIBUTING.md`, PR template, and `.github/workflows` before writing code.
   Match their commit format, sign-off (DCO `git commit -s`), and CLA requirements.
 - One PR = one concern. Don't bundle a drive-by fix with a feature.
