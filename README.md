@@ -22,7 +22,25 @@ git clone git@github.com:raviranjan6020/ai-skills.git ~/ai-skills
 ~/ai-skills/install.sh global
 ```
 
-`global` symlinks into `~/.claude`, `~/.codex`, `~/.kiro`. Edits in this repo apply at once, except `~/.codex/AGENTS.md`, which is a generated bundle. Re run `install.sh global` after editing rules.
+`global` links each rule, skill and agent into `~/.claude`, `~/.codex`, `~/.kiro`, and writes `~/.claude/CLAUDE.md` and `~/.codex/AGENTS.md`. Edits to existing files apply at once. Re run `install.sh global` after adding or removing a rule or skill.
+
+### Personal overlay
+
+Keep rules and skills that only apply to you (your workspace, accounts, project norms) in your own folder, not in a fork of this repo:
+
+```
+~/my-agent/
+├── AGENTS.md       optional, imported after this repo's AGENTS.md
+├── rules/          extra topic rules
+├── skills/         extra skills
+└── agents/         extra subagents
+```
+
+```sh
+~/ai-skills/install.sh global --overlay ~/my-agent
+```
+
+The overlay is installed on top of this repo. On a name clash the overlay file wins. Pass `--overlay` every time you re run `install.sh global`. Without it, `~/.claude/CLAUDE.md` and `~/.codex/AGENTS.md` are regenerated without the overlay.
 
 Per repo:
 

@@ -1,9 +1,5 @@
 # Open-source contribution
 
-- OSS work lives in the `~/oss` workspace. Notes and status are in `~/oss/oss-stack`
-  (private repo `raviranjan6020/oss-stack`); code repos are cloned to `~/oss/<repo>`.
-  Before OSS work, `git -C ~/oss/oss-stack pull --rebase --autostash` and read `STATUS.md`.
-  Follow `~/oss/oss-stack/AGENTS.md` for where notes go, and push right after editing.
 - Read `CONTRIBUTING.md`, PR template, and `.github/workflows` before writing code.
   Match their commit format, sign-off (DCO `git commit -s`), and CLA requirements.
 - One PR = one concern. Don't bundle a drive-by fix with a feature.
